@@ -13,6 +13,20 @@
     <Page.Resources>
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
         <x:String x:Key="AppName">Hello, world!</x:String>
+        <Style x:Key="BigGreenTextStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="36"/>
+            <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}"/>
+            <Setter Property="SelectionHighlightColor" Value="{ThemeResource TextSelectionHighlightColorThemeBrush}"/>
+            <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="Typography.StylisticSet20" Value="True"/>
+            <Setter Property="Typography.DiscretionaryLigatures" Value="True"/>
+            <Setter Property="Typography.CaseSensitiveForms" Value="True"/>
+            <Setter Property="LineStackingStrategy" Value="BlockLineHeight"/>
+            <Setter Property="TextLineBounds" Value="TrimToBaseline"/>
+            <Setter Property="OpticalMarginAlignment" Value="TrimSideBearings"/>
+            <Setter Property="Foreground" Value="Green"/>
+        </Style>
     </Page.Resources>
 
     <!--
@@ -47,12 +61,12 @@
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
         </Grid>
         <StackPanel Grid.Row="1" Margin="120,30,0,0">
-            <TextBlock Text="What's your name?"/>
+            <TextBlock Text="What's your name?" Style="{ThemeResource BaseTextBlockStyle}"/>
             <StackPanel Orientation="Horizontal" Margin="0,20">
                 <TextBox x:Name="nameInput" Width="300" HorizontalAlignment="Left"/>
-                <Button Content="Say &quot;Hello&quot;"/>
+                <Button Content="Say &quot;Hello&quot;" Click="Button_Click"/>
             </StackPanel>
-            <TextBlock x:Name="greetingOutput"/>
+            <TextBlock x:Name="greetingOutput" Style="{StaticResource BigGreenTextStyle}"/>
         </StackPanel>
 
     </Grid>
